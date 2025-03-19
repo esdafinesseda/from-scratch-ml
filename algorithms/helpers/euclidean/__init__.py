@@ -1,0 +1,1 @@
+from .euclidean_scratch import euclidean_distance
