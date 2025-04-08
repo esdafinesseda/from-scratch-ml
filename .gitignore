@@ -3,3 +3,5 @@ data
 .venv
 practicals
 setup.py
+.gitignore
+__pycache__

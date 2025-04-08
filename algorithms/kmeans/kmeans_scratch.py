@@ -46,13 +46,7 @@ class KMeans:
         Returns:
             np.ndarray: centroid labels
         """
-        # Add a dimension so we can broadcast each point across each centroid
-        # (n_features, n_points) -> (n_features, 1, n_points)
-        expanded = np.expand_dims(X, axis=1)
-
-        # Calculate distance between each point and each centroid
-        # (n_features, 1, n_points) -> (n_features, k, n_points)
-        distance = np.linalg.norm((expanded - self.centroids), axis=-1)
+        distance = np.linalg.norm(X[:, np.newaxis, :] - self.centroids, axis=-1)
 
         # Indices of centroid closest to datapoint, i.e. centroid label array
         points = np.argmin(distance, axis=1)
